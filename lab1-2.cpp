@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <string.h>
 
-void GetSet( int [], int * ) ;
+void GetSet( int [], int * ) ;//ประกาศใช้ฟังก์ชัน getset
 
 int main() {
     int *data, num ;

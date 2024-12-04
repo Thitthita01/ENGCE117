@@ -10,7 +10,6 @@ int main() {
 
  void GetMatrix( int *value[ ], int *row, int *col ) {
     
-
     printf( "Enter the number of rows: " ) ;
     scanf( "%d", row ) ;//ใส่แถว
     printf( "Enter the number of columns: " ) ;

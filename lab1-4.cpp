@@ -16,7 +16,7 @@ int GetSet( int data [ ] ) {
 
 int main() {
     int num ;
-    int data[ 100 ] ;  // กำหนดอาร์เรย์ขนาดคงที่
+    int data[ 100 ] ;// กำหนดอาร์เรย์ขนาดคงที่
 
     num = GetSet( data ) ;
 
