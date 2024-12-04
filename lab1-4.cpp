@@ -22,7 +22,7 @@ int main() {
 
     printf( "Number of elements: %d\n", num ) ;
     for (int i = 0 ; i < num ; i++ ) {
-        printf( "%d ", data[ i ] ) ;
+        printf( "%d ", &(*data)[ i ] ) ;
     }
     printf( "\n" ) ;
 
