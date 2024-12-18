@@ -1,48 +1,34 @@
 #include <stdio.h>
 
-void GetMatrix( int *value[ ], int *row, int *col ) ;// ประกาศใช้ฟังก์ชั่น  GetMatrix
+void GetMatrix( int value[], int *row, int *col ) ;
 
 int main() {
-    int *data, m, n ;//ประกาศตัวแปรสำหรับเก็บข้อมูลเมทริกและขนาด
-    GetMatrix( &data, &m, &n ) ;//เรียกใช้ฟังก์ชั่น
+    int *data, m, n ;
+    data = new int[ 20 ];
+    GetMatrix( data, &m, &n ) ;
+    printf( "Matrix (%dx%d): \n", m, n ) ;
+    
+    for( int i = 0 ; i < m ; i++ ) {
+        for( int j = 0 ; j < n ; j++ ) {
+            printf( "%d ", data[ i * n + j ] ) ;
+        }//end for
+        printf( "\n" ) ;
+    }//end for
+
     return 0 ;
 }//end function
 
- void GetMatrix( int *value[ ], int *row, int *col ) {
-    
+void GetMatrix( int value[], int *row, int *col ) {
+    int sz ;
     printf( "Enter the number of rows: " ) ;
-    scanf( "%d", row ) ;//ใส่แถว
+    scanf( "%d", row ) ;
     printf( "Enter the number of columns: " ) ;
-    scanf( "%d", col ) ;//ใส่คอลัมน์ 
+    scanf( "%d", col ) ;
+    printf( "Enter the matrix elements: " ) ;
+    sz = ( *row ) * ( *col ) ;
 
-    for( int i = 0 ; i < *row * *col ; i++ ){
-        value[ i ] = new int[ i ] ;
-    }
-
-    if( *row == 0 && *col == 0 ) {
-        printf( "Matrix: (empty)\n" ) ;
-    }
-    else if( ( *row == 0 && *col > 0 ) || ( *row > 0 && *col == 0 ) ) {
-        printf( "Error: Invalid matrix dimensions.\n" ) ;
-    }else{
-        printf( "Enter the elements of matrix: " ) ;
-        for( int i = 0 ; i < *row ; i++ ) {
-            for( int j = 0 ; j < *col ; j++ ) {
-                scanf( "%d", &value[ i * ( *col ) + j ]  ) ; 
-                if( getchar() == '\n' &&  i == *row - 1 && j == *col - 2 ) {
-					printf( "Error: Invalid matrix input" ) ;
-					return ;
-				}//end if
-            }//end for
-        }//end for
-
-        printf( "Matrix (%dx%d): \n", *row, *col ) ;
-        for( int i = 0 ; i < *row ; i++ ) {
-            for( int j = 0 ; j < *col ; j++ ) {
-                printf( "%d ", value[ i * ( *col ) + j ] ) ;//แสดงค่าทีละตัว
-            }
-            printf( "\n" ) ;
-        }//end for
-    }//end else
- }//end function
+    for( int i = 0 ; i < sz ; i++ ) {
+        scanf( "%d", &value[i] ) ;
+    }//end for
     
+}//end function
